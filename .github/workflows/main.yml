@@ -15,9 +15,14 @@ jobs:
           python-version: '3.13'
 
       - name: Run Python Script
+        if: always()
         run: |
           python -m pip install requests
           python -m pip install behave
           python -m pip install gemfileparser
           behave
-      
+
+      - name: Logging Results
+        if: failure()
+        run: | 
+          echo "Generate a Report Here"
