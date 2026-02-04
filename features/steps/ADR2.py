@@ -9,7 +9,7 @@ def step_impl(context):
 @when('we read our Gemfile')
 def step_impl(context):
     # file directory primitives; current working directory
-    cwd_root = os.path.join(os.getcwd(), "figgy")
+    cwd_root = os.getcwd()
     check = RubyChecks.RubyCheck(cwd_root, "Gemfile", "", "", "", "", ["sidekiq-pro"])
     assert check.result() is True
 
@@ -26,4 +26,5 @@ def step_impl(context):
 # check = RubyChecks.RubyCheck(cwd_root, ".ruby-version", "", "", "", "", ["rails", "sass", "puma"])
     
 # # Perform the check
+
 # print(f"   Finished Checking for Ruby\n   RESULT: {check.result()}")
